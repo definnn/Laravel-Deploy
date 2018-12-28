@@ -20,7 +20,7 @@ class AttendanceViewController extends Controller
 	 $attendances = DB::table('attendances')
     ->where('line_num', '=', $position ) 
 	->where('time_in', '!=', "00:00:00.000000")
-	->where('leave', '=', null )	
+	->where('leave', '=', '' )	
 		->get();}
 		
 		else {
@@ -28,7 +28,7 @@ class AttendanceViewController extends Controller
 	 $attendances = DB::table('attendances')
 	->where('position', '=', $position )
 	->where('time_in', '!=', "00:00:00.000000") 
-	->where('leave', '=', null )
+	->where('leave', '=', '')
     ->get();}
 	
 

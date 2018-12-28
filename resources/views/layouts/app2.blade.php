@@ -9,7 +9,23 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'ESQUEL') }}</title>
-
+    <script>
+    function startTime() {
+      var today = new Date();
+      var h = today.getHours();
+      var m = today.getMinutes();
+      var s = today.getSeconds();
+      m = checkTime(m);
+      s = checkTime(s);
+      document.getElementById('clockman').innerHTML =
+      h + ":" + m + ":" + s;
+      var t = setTimeout(startTime, 500);
+    }
+    function checkTime(i) {
+      if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+      return i;
+    }
+    </script>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
@@ -34,6 +50,10 @@
 
 <!--<div id="footer"> Copyright &#x24B8; 2018 Esquel Malaysia Sdn. Bhd. All rights reserved.</div>-->
 <body style="background-color:#FFFFFF;">
+
+    <body onload="startTime()">
+
+    
 
     <div id="app">
 	
@@ -113,14 +133,7 @@
                 </div>
             </div>
         </nav>
-
-			<?php
-				date_default_timezone_set("Asia/Kuala_Lumpur");
-			
-				echo "<a align=right>"."<font face=georgia color=#000000 size=4pt>".date('l F-d-Y')."</font>". "</a> "; 
-				echo "<a align=right>"."<font face=georgia color=#000000 size=4pt>".date('H:i A'). "</font>"."</a> "; 
-			?>
-			
+				<div id="clockman"></div>
         <main class="py-4">
 			@yield('content')
         </main>
