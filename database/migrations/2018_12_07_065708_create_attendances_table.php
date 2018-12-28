@@ -17,7 +17,7 @@ class CreateAttendancesTable extends Migration
             $table->increments('id');
 			$table->string('position');
 			$table->string('line_num');
-			$table->string('op_id')->unique();
+			$table->string('op_id');
 			$table->string('work_hr');
 			$table->string('sv_name');
 			$table->string('time_in');
