@@ -18,11 +18,13 @@ class CreateAttendancesTable extends Migration
 			$table->string('position');
 			$table->string('line_num');
 			$table->string('op_id');
+            $table->string('op_name');
 			$table->string('work_hr');
 			$table->string('sv_name');
 			$table->string('time_in');
 		    $table->string('leave')->nullable();
-            $table->timestamps();
+            $table->string('created_at')->nullable();
+            $table->string('updated_at')->nullable();
         });
     }
 
